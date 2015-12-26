@@ -8,6 +8,14 @@ def main():
     #データファイルを読み込む
     clf.load()
 
+#    while True:
+#        str = input()
+#        print(str)
+#        if str == "1":
+#            break
+
+
+
 ##################################################
 #ここから
 
@@ -15,7 +23,7 @@ def main():
 #print(clf.queation([0, 1, 2], [1, 3, 5]))
 
 #回答を受け取る
-#in@put()
+#input()
 
 #回答があるかどうかを調べる
 #str = clf.answer([0, 1, 2], [1, 3, 5])
