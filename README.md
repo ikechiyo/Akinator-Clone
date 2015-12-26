@@ -1,4 +1,5 @@
-pip ins
+python 入門
+http://www.tohoho-web.com/python/index.html
 
 
 テストデータ作成
