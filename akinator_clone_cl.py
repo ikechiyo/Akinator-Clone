@@ -21,9 +21,15 @@ def main():
 
 #問題を出力
 #print(clf.queation([0, 1, 2], [1, 3, 5]))
+    queation_list = []
+    input_list = []
     while True:
+        
+        queation = clf.queation(queation_list, input_list)
+        queation_list.append(queation)
+
         print("ーーーーーーーーーーーーーーーーーーーー")
-        print(clf.queation([0, 1, 2], [1, 3, 5]))
+        print(queation)
         print("￣￣￣￣￣￣￣￣￣∨￣￣￣￣￣￣￣￣￣￣")
         print("　　　　　　　　∧_∧")
         print("　　　　　　　 < ｀∀´>　")
@@ -36,14 +42,15 @@ def main():
         print("　　　　　　　 `ｰ‐'' ") 
         print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓") 
         print("┃ 「YES」なら 5 、「NO」なら 1	┃")
-        print("┃ 「わからない場合」は 0 を入力 ┃") 
+        print("┃ 「わからない場合」は 3 を入力 ┃") 
         print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛") 
 
 
 #回答を受け取る
 #input()
         str = input()
-        answer = clf.answer([0, 1, 2], [1, 3, 5])
+        input_list.append(str)
+        answer = clf.answer(queation_list, input_list)
 
 #回答があるかどうかを調べる
 #str = clf.answer([0, 1, 2], [1, 3, 5])

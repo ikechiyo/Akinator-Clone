@@ -62,24 +62,24 @@ class classification:
         feature_index = self.clf.tree_.feature[node_index]
   
         #特徴が-2の場合終端ノードなので、labelを返す
-        if feature_index == "-2":
-            value_list = self.clf.tree_.value[node_index]
+        if str(feature_index) == "-2":
+            value_list = self.clf.tree_.value[node_index][0].tolist()
             label_index = value_list.index(max(value_list))
+
             return "", self.label[label_index]
 
         #現在の階層より、取得済みの回答が少ない場合、問題を返す
         if class_cnt > len(feature_list) - 1:
             return self.feature[feature_index], ""
-            
-        print(feature_list[class_cnt], feature_index)
+
         #treeの特徴と回答の特徴が一致しない場合(ERROR)
         if feature_list[class_cnt] != feature_index:
             raise "treeの特徴と回答の特徴が一致しない"
 
         feature_threshold = self.clf.tree_.threshold[node_index]
-        
+
         #境界値以下の場合は左のノード、それ以外は右のノード
-        if data_list[class_cnt] <= feature_threshold:
+        if int(data_list[class_cnt]) <= feature_threshold:
             next_index = self.clf.tree_.children_left[node_index]
         else :
             next_index = self.clf.tree_.children_right[node_index]
