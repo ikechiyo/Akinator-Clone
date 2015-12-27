@@ -1,5 +1,3 @@
-<p><markdown>
-#Markdown Live Editor#
 # アキネータのクローンを作成する
  * アキネータ(※)を作成することで機械学習を学ぶ
  * 機械学習が得意とされるpythonを使用することで、別ドメインデータも解析できる力をつける。
@@ -49,4 +47,3 @@ data.tsv：質問の回答のTSV
 
 
   [1]: http://jp.akinator.com/
-</markdown></p>
