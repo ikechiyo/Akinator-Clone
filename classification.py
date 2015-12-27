@@ -66,7 +66,7 @@ class classification:
             value_list = self.clf.tree_.value[node_index][0].tolist()
             label_index = value_list.index(max(value_list))
 
-            return "", self.label[label_index]
+            return "", self.clf.classes_[label_index]
 
         #現在の階層より、取得済みの回答が少ない場合、問題を返す
         if class_cnt > len(feature_list) - 1:
