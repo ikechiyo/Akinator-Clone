@@ -32,6 +32,37 @@ class classification:
         self.clf = tree.DecisionTreeClassifier()
         self.clf.fit(self.data, self.label)
 
+    def save(self, answer, feature_nm_list, data_list):
+        
+        feature_list = self.__get_feature_list(feature_nm_list)
+
+        test_data = []
+        for i in range(len(self.feature)):
+            if i in feature_list:
+                test_data.append(data_list[feature_list.index(i)])
+            else:
+                test_data.append("3")
+
+
+        #相対パス取得
+        base = os.path.dirname(os.path.abspath(__file__))
+        #ファイルパス取得
+        data_file = os.path.normpath(os.path.join(base, './data/data.tsv'))
+        label_file = os.path.normpath(os.path.join(base, './data/label_nm.txt'))
+        data_writer = open(data_file, 'a', encoding='utf-8')
+        label_writer = open(label_file, 'a', encoding='utf-8')
+
+        data_tsv = ""
+        for data in test_data:
+
+            if data_tsv != "":
+                data_tsv = data_tsv + "\t"
+            
+            data_tsv = data_tsv + data
+
+        data_writer.write(data_tsv + "\n")
+        label_writer.write(answer + "\n")   
+
     def answer(self, feature_nm_list, data_list):
         
         feature_list = self.__get_feature_list(feature_nm_list)

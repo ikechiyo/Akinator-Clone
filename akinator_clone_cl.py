@@ -67,12 +67,35 @@ def main():
 #回答があったら出力してループを抜ける
 #print
 
-
 #回答がなかったら1に戻る
 #～のあいだ(while, else)
 
+    #回答について正解なのかを確認する
+    print("↑は正解でしたか？")
+    print("1:正解") 
+    print("2:不正解") 
 
+    #正解かどうかの入力をうける
+    if input() == "1":
+        #そのまま保存
+        pass
+    else :
+        #正解を得る
+        print("正解を選んでください")
+        print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓") 
+
+        #正解のリストを表示
+        for i in range(len(clf.clf.classes_)):
+            print(i,"：", clf.clf.classes_[i])
+
+        print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛") 
+    
+        answer = clf.clf.classes_[input()]
+
+    clf.save(answer, queation_list, input_list)
+    
 #ここまで
 ##################################################
 if __name__ == "__main__":
     sys.exit(int(main() or 0))
+
